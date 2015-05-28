@@ -18,48 +18,6 @@ public class Game {
     private static String endRegex = "(\\s*end\\s*)";
     
     private static void initiateTurn() {
-//        Piece currPiece;
-//        while (true) {
-//            try {
-//                board.dump();
-//                System.out.println("Please enter the coordinates of the piece you wish to control.");
-//                String pieceSelection = matchUserInput(positionRegex + "|" + endRegex, "Your input must be in the form \"X Y\" where X and Y represent the row and column respectively.");
-//                int[] pieceCoordinates = convertCoordinates(pieceSelection);
-//                currPiece = board.getPiece(pieceCoordinates[0], pieceCoordinates[1]);
-//                if (currPiece == null) {
-//                    throw new IllegalSelectionException("You must select a piece.");
-//                }
-//                validatePieceController(currPiece);
-//                break;
-//            } catch (NoSuchLocationException nsle) {
-//                handleGameException(nsle);
-//            } catch (IllegalSelectionException ise) {
-//                handleGameException(ise);
-//            }
-//        }
-//        System.out.println("Please type \"roll\" to roll the dice.");
-//        matchUserInput(rollRegex, "Please type \"roll\" first to roll the dice.");
-//        int[] rolls = dice.simluateRolls();
-//        int movement = rolls[0] + rolls[1];
-//        System.out.println("You must move " + movement + " blocks.");
-//
-//        while (true) {
-//            try {
-//                String moveCommand = "";
-//                while (!moveCommand.matches(endRegex)){
-//                    System.out.println("Please enter the coordinates you wish to interact with or \"end\" to end your turn.");
-//                    moveCommand = matchUserInput(positionRegex, "Your input must be in the form \"X Y\" where X and Y represent the row and column respectively or match the word \"end\".");
-//                    int[] moveCoordinates = convertCoordinates(moveCommand);
-//                    currPiece.interact(moveCoordinates[0], moveCoordinates[1]);
-//                    board.dump();
-//                }
-//                break;
-//            } catch (IllegalSelectionException ime) {
-//                handleGameException(ime);
-//            } catch (NoSuchLocationException nsle) {
-//                handleGameException(nsle);
-//            }
-//        }
         
         Piece selectedPiece;
         String command;
@@ -143,16 +101,6 @@ public class Game {
             throw new IllegalCommandException("You cannot attack this piece.");
         }
     }
-    
-//    private static String matchUserInput(String regex, String errorMessage) {
-//        System.out.println(regex);
-//        String command = scanner.nextLine();
-//        while (!command.matches(regex)) {
-//            System.out.println(errorMessage);
-//            command = scanner.nextLine();
-//        }
-//        return command;
-//    }
     
     private static int[] convertToPosition(String positionString) {
         positionString = positionString.trim();

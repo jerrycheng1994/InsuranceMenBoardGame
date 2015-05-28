@@ -3,7 +3,6 @@ package lib;
 import java.util.ArrayList;
 
 import src.CharacterPiece;
-import src.Piece;
 
 public enum Player {
 

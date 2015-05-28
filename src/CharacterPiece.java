@@ -1,6 +1,5 @@
 package src;
 import lib.Direction;
-import lib.PieceType;
 import lib.Player;
 import lib.IllegalCommandException;
 import lib.NoSuchLocationException;
@@ -18,29 +17,6 @@ public class CharacterPiece extends Piece {
         this.hasMoved = false;
         this.controller.addPiece(this);
     }
-    
-//    @Override
-//    public void interact(int row, int column, int roll) throws IllegalCommandException, NoSuchLocationException {
-//        Piece targetPiece = board.getPiece(row, column);
-//        if (targetPiece == null) {
-//            if (roll == -1) {
-//                throw new IllegalCommandException("You must roll the dice before moving your piece.");
-//            }
-//            move(row, column, roll);
-//        } else {
-//            interactWithPiece(targetPiece, targetPiece.getType());
-//        }
-//    }
-//    
-//    @Override
-//    public void interactWithPiece(Piece targetPiece, PieceType targetPieceType) throws IllegalCommandException {
-//        switch (targetPieceType) {
-//        case CHARACTER:
-//            validateAttack(targetPiece);
-//            attack(targetPiece);
-//            break;
-//        }
-//    }
 
     @Override
     public void move(int row, int column, int roll) throws NoSuchLocationException, IllegalCommandException {

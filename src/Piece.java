@@ -25,17 +25,6 @@ public abstract class Piece {
         this.board.addPiece(this, row, column);
     }
     
-//    /** Interacts with the position at ROW and COLUMN, calling other methods depending on the type of that position. 
-//     * @throws NoSuchLocationException */
-//    public void interact(int row, int column, int roll) throws IllegalCommandException, NoSuchLocationException {
-//        throw new UnsupportedOperationException("This piece does not support the interact method.");
-//    }
-//
-//    /** Interacts with a piece at the position at ROW and COLUMN, calling other methods depending on the type of that position. */
-//    void interactWithPiece(Piece targetPiece, PieceType targetPieceType) throws IllegalCommandException {
-//        throw new UnsupportedOperationException("This piece does not support the interactWithPiece method.");
-//    }
-    
     /** Moves this piece to position at ROW and COLUMN. 
      * @throws NoSuchLocationException 
      * @throws IllegalCommandException */

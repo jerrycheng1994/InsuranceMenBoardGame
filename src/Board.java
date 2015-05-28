@@ -1,6 +1,4 @@
 package src;
-import static lib.Player.*;
-import lib.Player;
 import lib.NoSuchLocationException;
 
 public class Board {
@@ -25,7 +23,6 @@ public class Board {
      * @throws NoSuchLocationException */
     public void removePiece(int row, int column) throws NoSuchLocationException {
         validateLocation(row, column);
-        Piece targetPiece = getPiece(row, column);
         boardRepresentation[row][column] = null;
     }
     
