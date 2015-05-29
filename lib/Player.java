@@ -38,10 +38,8 @@ public enum Player {
     
     /** Ensures that this player can attack. 
      * @throws IllegalCommandException */
-    public void validateAttack() throws IllegalCommandException {
-        if (hasAttacked) {
-            throw new IllegalCommandException("You may only attack once a turn");
-        }
+    public boolean hasAttacked() {
+        return hasAttacked;
     }
     
     /** Epilogue for a player's turn. */

@@ -53,13 +53,13 @@ public class Game {
         int[] coordinates = convertToPosition(command);
         int row = coordinates[0];
         int column = coordinates[1];
-        if (selectedPiece == null) {
-            Piece tempPiece = board.getPiece(row, column);
-            if (tempPiece == null) {
+        Piece newSelectedPiece = board.getPiece(row, column);
+        if (selectedPiece == null || (newSelectedPiece != null && selectedPiece.getController() == newSelectedPiece.getController())) {
+            if (newSelectedPiece == null) {
                 throw new IllegalCommandException("You must first select one of your pieces.");
             }
-            validatePieceController(tempPiece);
-            selectedPiece = tempPiece;
+            validatePieceController(newSelectedPiece);
+            selectedPiece = newSelectedPiece;
         } else {
             handleInteraction(selectedPiece, row, column, roll);
             selectedPiece = null;
@@ -130,7 +130,11 @@ public class Game {
     
     private static void setupBoard() {
         try {
+            new CharacterPiece(PLAYER1, 1, 4, board);
             new CharacterPiece(PLAYER1, 0, 0, board);
+            new CharacterPiece(PLAYER1, 0, 9, board);
+            new CharacterPiece(PLAYER2, 8, 5, board);
+            new CharacterPiece(PLAYER2, 9, 0, board);
             new CharacterPiece(PLAYER2, 9, 9, board);
         } catch (NoSuchLocationException nsle) {
             System.out.println("Could not successfully set up the board.");

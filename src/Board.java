@@ -50,7 +50,7 @@ public class Board {
     
     /** Returns true if the position at ROW and COLUMN is lethal to a Piece. */
     public boolean isLethalPosition(int row, int column) {
-        if (row >= this.getSize() || column >= this.getSize()) {
+        if (row >= this.getSize() || column >= this.getSize() || row < 0 || column < 0) {
             return true;
         }
         return false;

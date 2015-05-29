@@ -15,6 +15,7 @@ public class CharacterPiece extends Piece {
         super(controller, row, column, board);
         this.type = CHARACTER;
         this.hasMoved = false;
+        this.hasAttacked = false;
         this.controller.addPiece(this);
     }
 
@@ -52,8 +53,8 @@ public class CharacterPiece extends Piece {
         if (this.getController() == target.getController()) {
             throw new IllegalCommandException("You cannot attack your own piece.");
         }
-        if (this.hasAttacked) {
-            throw new IllegalCommandException("You have already attacked with this piece this turn.");
+        if (this.hasAttacked || this.getController().hasAttacked()) {
+            throw new IllegalCommandException("You have already attacked this turn.");
         }
         if (target.getRow() != this.getRow() && target.getColumn() != this.getColumn()) {
             throw new IllegalCommandException("You can only attack pieces that are aligned with your piece.");
